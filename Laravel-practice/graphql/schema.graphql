@@ -1,60 +1,9 @@
 type Query {
     users: [User!]! @paginate
     user(id: ID @eq): User @find
+
+    post: [Post!]! @paginate
 }
 
-type Mutation {
-    createUser(
-        name: String!, 
-        email: String!,
-        password: String!
-    ) : User! @create
-
-    updateUser(
-        id: ID!,
-        name: String!
-        email: String!
-    ) : User! @update
-
-    deleteUser(
-        id: ID!
-    ) : User @delete
-
-    upsertUser(
-        id: ID!
-        name: String!
-        email: String!
-        password: String!
-    ) : User! @upsert
-
-}
-
-type User {
-    id: ID
-    name: String
-    email: String
-    email_verified_at: String
-}
-
-# command when running it into the playground
-
-# mutation{
-#   createUser(
-#     name:"Jum",
-#     email:"jum@gmail.com", 
-#     password:"password")
-#   {
-#     name
-#   }
-# }
-
-# # queries
-# {
-#   users(first:2, page:1){
-#     data{
-#       name,
-#       id
-#     }
-#   }
-
-# }
+#import user.graphql
+#import post.graphql
