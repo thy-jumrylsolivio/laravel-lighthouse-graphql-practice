@@ -13,7 +13,12 @@ type Mutation {
     updateUser(
         id: ID!,
         name: String!
+        email: String!
     ) : User! @update
+
+    deleteUser(
+        id: ID!
+    ) : User @delete
 
 }
 
