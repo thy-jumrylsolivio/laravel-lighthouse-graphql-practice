@@ -20,6 +20,13 @@ type Mutation {
         id: ID!
     ) : User @delete
 
+    upsertUser(
+        id: ID!
+        name: String!
+        email: String!
+        password: String!
+    ) : User! @upsert
+
 }
 
 type User {
